@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Player;
+use App\Models\SellBuyPlayer;
 use App\Models\Team;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
@@ -76,6 +77,6 @@ class TeamPlayerController extends Controller
         $record = Player::findOrFail($id);
         $record->delete();
          
-        return  response()->json(['success' => true]);
+        return  response()->json(['message' => "Player Deleted Successfully"]);
     }
 }

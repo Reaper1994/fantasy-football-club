@@ -35,6 +35,9 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
+                
+             // Change the default page to a different route
+            Route::redirect('/', '/teams');
         });
     }
 }

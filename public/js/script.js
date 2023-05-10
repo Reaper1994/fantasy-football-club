@@ -1,6 +1,13 @@
 function openPlayerForm() {
-  $('#addPlayer').show();
-  $('#createTeamForm').hide();
+    $('#addPlayer').show();
+    $('#createTeamForm').hide();
+    $('.form-control').val('');
+}
+
+function openTeamForm() {
+    $('#createTeamForm').show();
+    $('#addPlayer').hide();
+    $('.form-control').val('');
 }
 
 $(document).ready(function() {
@@ -46,6 +53,7 @@ $(document).ready(function() {
               // Handle the successful response
               alert("Player Added succesfully");
               alert("Add anoter Player or exit");
+              $('#playerName').val('');
               $('#addPlayer').show();
               $('#createTeamForm').hide();
 
@@ -90,9 +98,9 @@ $(document).ready(function() {
                   id: $(this).data('id'),
               },
               dataType: 'json',
-              success: function(data) {
+              success: function(response) {
                   // Handle the successful response
-                  alert("Team and its associated players have been succesfully deleted");
+                  alert(response.message);
 
                   $('#teamModal').modal('hide'); // hide the modal
                   location.reload(); // reload the page
@@ -120,9 +128,9 @@ $(document).ready(function() {
                   id: $(this).data('id'),
               },
               dataType: 'json',
-              success: function(data) {
+              success: function(response) {
                   // Handle the successful response
-                  alert("Player Deleted");
+                  alert(response.message);
 
                   $('#teamModal').modal('hide'); // hide the modal
                   location.reload(); // reload the page
@@ -131,7 +139,8 @@ $(document).ready(function() {
               error: function(xhr, status, error) {
                   // Handle the error response
                   var response = JSON.parse(xhr.responseText);
-                  alert(response.message);
+                  alert('Something went wrong!')
+                  console.log(response.message);
               }
           });
       }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Player;
+use App\Models\SellBuyPlayer;
 use App\Models\Team;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
@@ -109,15 +110,29 @@ class TeamController extends Controller
      */
     public function destroy(int $id): JsonResponse
     {
-        $team    = Team::findOrFail($id); 
-        $players = Player::where('team_id', $id)->get();
+        $team             = Team::findOrFail($id); 
+        $players          = Player::where('team_id', $id)->get();
+        $players_for_sale = SellBuyPlayer::where(["sell" => 1, "buy" => 0])
+            ->with("player")
+            ->get();
 
+        $player_up_for_sale_flag = false;
+    
         foreach($players as $player) {
-            $player->delete();
+            foreach($players_for_sale as $player_up_for_sale) {          
+                if ($player_up_for_sale->player_id == $player->id) {                 
+                    $player_up_for_sale_flag = true;
+                    continue;
+                }
+                $player->delete();
+            }    
+        }
+
+        if ($player_up_for_sale_flag) {
+            return  response()->json(['message' => 'Team can\'t deleted as a player is up for grabs, the rest asociated players have been disbanded']);
         }
 
         $team->delete();
-         
-        return  response()->json(['success' => true]);
+        return  response()->json(['message' => 'Team deleted Successfully']);
     }
 }

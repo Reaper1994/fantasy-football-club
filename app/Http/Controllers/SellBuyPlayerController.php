@@ -167,7 +167,16 @@ class SellBuyPlayerController extends Controller
         try {
             if ($sell_buy_players) {
                 
-                $team = Team::where("id", $request->team_id)->first();
+                $team   = Team::where("id", $request->team_id)->first();
+                $player = Player::where("id", $request->player_id)->first();
+
+                if ($player->team_id == $request->team_id) {
+
+                    return response()->json([
+                        "message" =>
+                            "Action not permitted as this player was putup for sale by the same team"
+                    ]);
+                }
 
                 if ($sell_buy_players->amount < $team->balance) {
                    
@@ -190,7 +199,7 @@ class SellBuyPlayerController extends Controller
                 } else {
                     return response()->json([
                         "message" =>
-                            "Sorry selected team does not have sufficient balance to acquire this player!",
+                            "Sorry the selected team does not have sufficient balance to acquire this player!",
                     ]);
                 }
             }
