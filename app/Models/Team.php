@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Team extends Model
@@ -12,8 +13,13 @@ class Team extends Model
     use SoftDeletes;
 
     protected $fillable = ['name', 'country', 'balance'];
-
-    public function players()
+ 
+    /**
+     * Define a has-many  relationship with the `Player` model
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function players(): HasMany
     {
         return $this->hasMany(Player::class);
     }

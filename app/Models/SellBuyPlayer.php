@@ -15,7 +15,7 @@ class SellBuyPlayer extends Model
     protected $fillable = ['player_id', 'amount', 'buy', 'sell'];
 
     /**
-     * Define a belongsTo relationship with the `Player` model
+     * Define a belongs-to relationship with the `Player` model
      * 
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

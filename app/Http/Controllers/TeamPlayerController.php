@@ -12,10 +12,13 @@ class TeamPlayerController extends Controller
 {
     /**
      * Lists all the players.
+     * 
+     * @return View
      */
     public function index(): View
     {
         $teams   = Team::with('players')->paginate(5);
+
         return view('teams.teams-player-listing',compact(['teams']))
                     ->with('i', 1);
     }
