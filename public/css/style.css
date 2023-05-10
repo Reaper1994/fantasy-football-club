@@ -1,0 +1,11 @@
+span .relative {
+    display:none;
+}
+
+nav .justify-between {
+    margin-bottom: 10px;
+}
+
+.card-body {
+    overflow-x: auto;
+  }
