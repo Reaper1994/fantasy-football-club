@@ -174,7 +174,7 @@ class SellBuyPlayerController extends Controller
 
                     return response()->json([
                         "message" =>
-                            "Action not permitted as this player was putup for sale by the same team"
+                            "Action not permitted as this player was put up for sale by the same team"
                     ]);
                 }
 
