@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('players', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('surname');
             $table->unsignedBigInteger('team_id')->nullable(); // foreign key field that accepts null values
             $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
             $table->softDeletes();

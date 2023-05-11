@@ -35,6 +35,7 @@ class TeamPlayerController extends Controller
     {
         $request->validate([
             'name'    => 'required',
+            'surname' => 'required',
             'team_id' => 'nullable|integer',
         ]);
         
@@ -54,12 +55,13 @@ class TeamPlayerController extends Controller
     public function update(Request $request, int $id): JsonResponse
     {
         $request->validate([
-            'name' => 'required',
-            'id'   => 'required|integer'
+            'name'    => 'required',
+            'surname' => 'required'
         ]);
         
-        $player       = Player::findOrFail($id);
-        $player->name = $request->name;
+        $player          = Player::findOrFail($id);
+        $player->name    = $request->name;
+        $player->surname = $request->surname;
         $player->save();
           
         return response()->json(['success' => true]);

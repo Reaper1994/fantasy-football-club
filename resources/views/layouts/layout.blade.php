@@ -48,13 +48,13 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('teams') }}">{{ __('Add Teams & Players') }}</a>
+                            <a class="{{ request()->is('teams') ? 'active' : '' }} nav-link" href="{{ url('teams') }}">{{ __('Add Teams & Players') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('team-player') }}">{{ __('List Teams & Players') }}</a>
+                            <a class="{{ request()->is('team-player') ? 'active' : '' }} nav-link" href="{{ url('team-player') }}">{{ __('List Teams & Players') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('sell-buy-player') }}">{{ __('Sell/Buy Players') }}</a>
+                            <a class="{{ request()->is('sell-buy-player') ? 'active' : '' }} nav-link" href="{{ url('sell-buy-player') }}">{{ __('Sell/Buy Players') }}</a>
                         </li>
                         <!-- Authentication Links -->
                     </ul>

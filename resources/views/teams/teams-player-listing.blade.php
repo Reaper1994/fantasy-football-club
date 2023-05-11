@@ -48,13 +48,20 @@
 
             <form id="updatePlayer" action="" method="POST">
                 @csrf
-                <h5 class="modal-title" id="teamModalLabel">Edit Player</h5>
+                <h6 class="modal-title" id="teamModalLabel">Edit Player</h6>
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <input type="hidden" id="playerId" name="id" class="form-control">
                             <strong>Player Name:</strong>
                             <input type="text" id="playerName" name="name" class="form-control" placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <input type="hidden" id="playerId" name="id" class="form-control">
+                            <strong>Player Surname:</strong>
+                            <input type="text" id="playerSurname" name="surname" class="form-control" placeholder="Surname">
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
@@ -95,14 +102,14 @@
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingOne">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{  $team->name . $key }}" aria-expanded="true" aria-controls="collapse{{ $team->name . $key }}">
-                                    <p>{{ '#' . $key + 1 .' ' . $player->name }}</p>
+                                    <p>{{ '#' . $key + 1 .' ' . $player->name .' '. $player->surname}}</p>
                                 </button>
                                 </h2>
                                 <div id="collapse{{  $team->name . $key }}" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
                                     <form action="{{ route('team-player.destroy',$player->id) }}" method="POST">
 
-                                    <a class="btn btn-primary editPlayer" data-toggle="modal" data-id="{{$player->id}}" data-name="{{$player->name}}" data-target="#teamModal">Edit</a>
+                                    <a class="btn btn-primary editPlayer" data-toggle="modal" data-id="{{$player->id}}" data-name="{{$player->name}}" data-surname="{{$player->surname}}" data-target="#teamModal">Edit</a>
                                     <a class="btn btn-warning deletePlayer" data-toggle="modal"  data-id="{{$player->id}}" >Delete</a>
                                     </form>
                                 </div>

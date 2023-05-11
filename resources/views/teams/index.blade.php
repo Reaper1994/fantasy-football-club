@@ -67,6 +67,12 @@
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
+                            <strong>Surname:</strong>
+                            <input type="text" id="playerSurname" name="surname" class="form-control" placeholder="Surname">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
                             <strong>Team:</strong>
                             
                             <select id="teamId" name="team_id" class="form-control" required>

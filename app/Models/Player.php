@@ -12,7 +12,7 @@ class Player extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ['name', 'team_id'];
+    protected $fillable = ['name', 'surname', 'team_id'];
 
     /**
      * Define a beongs-to  relationship with the `Player` model

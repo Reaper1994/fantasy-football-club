@@ -23,7 +23,7 @@
                         <div class="form-group">
                             <strong>for £:</strong>
                             <input type="hidden" id="playerId" name="player_id"  />
-                            <input type="number" placeholder="Sell player for this amount" id="sell-amount" class="form-control" min="0" onchange="(function(el){el.value=parseFloat(el.value).toFixed(2);})(this)" name="amount" step="0.25" />
+                            <input type="number" placeholder="Sell player for this amount" id="sell-amount" class="form-control" min="0" onchange="(function(el){el.value=parseFloat(el.value).toFixed(2);})(this)" name="amount" step="0.25" required />
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
@@ -46,7 +46,7 @@
                                 @foreach ($sell_buy_players as $id => $sell_buy_player)
                                 
                                     @if (!empty( $sell_buy_player->player->id) )
-                                        <option value="{{ $sell_buy_player->player->id }}" data-amount={{$sell_buy_player->amount}} >{{ 'Prev Team : ' .$sell_buy_player->player->team->name .' | Player: ' . $sell_buy_player->player->name .' £ :' . $sell_buy_player->amount}}</option>
+                                        <option value="{{ $sell_buy_player->player->id }}" data-amount={{$sell_buy_player->amount}} >{{ 'Prev Team : ' .$sell_buy_player->player->team->name .' | Player: ' . $sell_buy_player->player->name.' ' .$sell_buy_player->player->surname .' | £ :' . $sell_buy_player->amount}}</option>
                                     @endif
                                 @endforeach
                             </select>
@@ -90,7 +90,7 @@
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingOne">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{  $team->name . $key }}" aria-expanded="true" aria-controls="collapse{{ $team->name . $key }}">
-                                    <p>{{ '#' . $key + 1 .' ' . $player->name }}</p>
+                                    <p>{{ '#' . $key + 1 .' ' . $player->name . ' ' . $player->surname }}</p>
                                 </button>
                                 </h2>
                                 <div id="collapse{{  $team->name . $key }}" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">

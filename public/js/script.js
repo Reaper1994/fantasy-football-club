@@ -54,6 +54,7 @@ $(document).ready(function() {
               alert("Player Added succesfully");
               alert("Add anoter Player or exit");
               $('#playerName').val('');
+              $('#playerSurname').val('');
               $('#addPlayer').show();
               $('#createTeamForm').hide();
 
@@ -71,6 +72,7 @@ $(document).ready(function() {
       $('#updatePlayer').show();
       $('#updateTeam').hide();
       $('#playerName').val($(this).data('name'));
+      $('#playerSurname').val($(this).data('surname'));
       $('#playerId').val($(this).data('id'));
 
   });
@@ -159,6 +161,7 @@ $(document).ready(function() {
               // Handle the successful response
               alert("Player data Updated succesfully");
               $('#playerName').val('');
+              $('#playerSurname').val('');
               $('#playerId').val('');
 
               $('#teamModal').modal('hide'); // hide the modal

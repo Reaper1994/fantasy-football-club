@@ -34,7 +34,7 @@ class TeamController extends Controller
      * @return JsonResponse
      * 
      */
-    public function store(Request $request):JsonResponse
+    public function store(Request $request): JsonResponse
     {
         $request->validate([
             'name'    => [
