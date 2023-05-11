@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('player_id');
             $table->foreign('player_id')->references('id')->on('players');
-            $table->float('amount');
+            $table->decimal('amount', 15, 2);
             $table->boolean('buy')->default(0);
             $table->boolean('sell')->default(0);
             $table->softDeletes();
