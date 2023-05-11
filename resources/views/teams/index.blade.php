@@ -39,7 +39,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                          <div class="form-group">
                             <strong>Country:</strong>
-                            <input type="text" name="country" class="form-control" placeholder="Enter 3 Character Country Code">
+                            <input type="text" name="country" class="form-control" pattern="[a-zA-Z]{3}" placeholder="Enter 3 Character Country Code">
                          </div>
                      </div>
                      <div class="col-xs-12 col-sm-12 col-md-12">
