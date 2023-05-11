@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('country', 3);
-            $table->float('balance');
+            $table->decimal('balance', 15, 2);
             $table->softDeletes();
             $table->timestamps();
         });
