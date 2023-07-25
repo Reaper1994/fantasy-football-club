@@ -1,8 +1,8 @@
 
-# Fantasy football Cub -Interview test
+# Fantasy Football Cub - Sample Project
 
-We have football teams . Each team has a name, country, money balance and players.
-Each player has name and surname.
+We have football teams. Each team has a name, country, money balance and players.
+Each player has a name and surname.
 Teams can sell/buy players.
 
 
@@ -34,7 +34,7 @@ then go to the project root directory and run
   sail up
 ```
 
-the application will will be accessibe at [127.0.0.1](127.0.0.1)
+the application will be accessibe at [127.0.0.1](127.0.0.1)
 
 
 
@@ -44,19 +44,19 @@ the application will will be accessibe at [127.0.0.1](127.0.0.1)
 
 #### Page to add a player or Team
 
-```http
+```HTTP
   GET http://127.0.0.1/teams
 ```
 
-#### Page to list all the teams and associated players with option to edit and delete them
+#### Page to list all the teams and associated players with the option to edit and delete them
 
-```http
+```HTTP
   GET http://127.0.0.1/team-player
 ```
 
 #### Page to buy and sell players
 
-```http
+```HTTP
   GET http://127.0.0.1/sell-buy-player
 ```
 
